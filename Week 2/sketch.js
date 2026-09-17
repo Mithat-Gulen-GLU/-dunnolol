@@ -1,8 +1,9 @@
 let auto1positie = 0;
-let timer = 0;
+// let tank1positie = 0;
 let wolk1positie = 0;
 let wolk2positie = 0;
 let zonpostie = 0;
+let presscount = 0;
 
 function setup() {
   createCanvas(800, 600);
@@ -10,9 +11,6 @@ function setup() {
 
 function draw() {
   background(173, 216, 230);
-  // if (timer >= 800) {
-  //   background(70, 70, 100);
-  // }
 
   // push();
   // fill("black");
@@ -62,9 +60,24 @@ function draw() {
   if (auto1positie > 800) {
     auto1positie = -200;
   }
-  // if (auto1snelheid > 800) {
-  //   auto1snelheid = 0;
+  if (presscount == 2) {
+    auto1positie = auto1positie -0.5;
+  }
+  if (presscount == 3) {
+    auto1positie = auto1positie -1;
+  }
+
+  // tank1positie = tank1positie + 0.25;
+  // if (tank1positie > 800) {
+  //   tank1positie = -300
   // }
+  // if (presscount == 2) {
+  //   tank1positie = tank1positie -0.125;
+  // }
+  // if (presscount == 3) {
+  //   tank1positie = tank1positie -0.25;
+  // }
+
   push();
   noStroke();
   fill(0, 0, 0);
@@ -102,37 +115,44 @@ function draw() {
   rect(752.5, 185, 5, 10); // PAAL
   rect(750, 195, 10, 5); // PAAL
 
-  // COLD WAR ERA CODE
-  timer++;
-  if (timer > 800) {
-  timer = 0;
+  // COLORLESS
+  push();
+  // if (presscount = 0) {
+  //   fill("black");
+  // circle(755, 180, 5); // GROEN
+  // circle(755, 165, 5); // GEEL
+  // circle(755, 150, 5); // ROOD
+  // }
+  if (presscount == 1) {
+    fill("black");
+  circle(755, 165, 5); // GEEL
+  circle(755, 150, 5); // ROOD
   }
-  if (timer > 0 && timer < 400) {
+  if (presscount == 2) {
+    fill("black");
+  circle(755, 180, 5); // GROEN
+  circle(755, 150, 5); // ROOD
+  }
+  if (presscount == 3) {
+    fill("black");
+  circle(755, 180, 5); // GROEN
+  circle(755, 165, 5); // GEEL
+  }
+  pop();
+
+  // COLORED
+  if (presscount == 1) {
     fill("green");
   circle(755, 180, 5); // GROEN
   }
-  if (timer > 400 && timer < 600) {
+  if (presscount == 2) {
     fill("yellow");
   circle(755, 165, 5); // GEEL
   }
-  if (timer > 600 && timer < 800) {
+  if (presscount == 3) {
     fill("red");
   circle(755, 150, 5); // ROOD
   }
-
-  // MODERNIZED CODE
-  // if(keyCode === 13) {
-  //   fill("green");
-  //   circle(755, 180, 5); // GROEN
-  // }
-  // if (keyCode === 13){
-  //   fill("yellow");
-  //   circle(755, 165, 5); // GEEL
-  // }
-  // if (keyCode === 13){
-  //   fill("red");
-  //   circle(755, 150, 5); // ROOD
-  // }
 
   // BERGEN
   push();
@@ -164,4 +184,13 @@ function draw() {
   // COLOUR TEST
   // fill();
   // rect(20, 20, 5, 5);
+}
+
+function keyPressed(){
+  if (keyCode === ENTER) {
+    presscount++;
+    if (presscount > 3) {
+      presscount = 1;
+    }
+  }
 }

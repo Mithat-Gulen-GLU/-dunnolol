@@ -13,14 +13,15 @@ function draw() {
   // if (timer >= 800) {
   //   background(70, 70, 100);
   // }
-  push();
-  fill("black");
+
+  // push();
+  // fill("black");
   // text("timer:" + timer, 20, 40);
   // text("auto1positie:" + auto1positie, 20, 20);
   // text("wolk1positie:" + wolk1positie, 20, 60);
   // text("wolk2positie:" + wolk2positie, 20, 80);
   // text("zonpositie:" + zonpostie, 700, 20);
-  pop();
+  // pop();
 
   // DE GROND
   push();
@@ -95,19 +96,16 @@ function draw() {
   pop();
 
   // VERKEERSLICHT
-  // if (key === enter) {
-  //   text("This is a test text", 700, 40);
-  // }
-
-
   noStroke();
   fill(128, 128, 128);
   rect(750, 145, 10, 40); // PAAL
   rect(752.5, 185, 5, 10); // PAAL
   rect(750, 195, 10, 5); // PAAL
+
+  // COLD WAR ERA CODE
   timer++;
   if (timer > 800) {
-    timer = 0;
+  timer = 0;
   }
   if (timer > 0 && timer < 400) {
     fill("green");
@@ -121,6 +119,20 @@ function draw() {
     fill("red");
   circle(755, 150, 5); // ROOD
   }
+
+  // MODERNIZED CODE
+  // if(keyCode === 13) {
+  //   fill("green");
+  //   circle(755, 180, 5); // GROEN
+  // }
+  // if (keyCode === 13){
+  //   fill("yellow");
+  //   circle(755, 165, 5); // GEEL
+  // }
+  // if (keyCode === 13){
+  //   fill("red");
+  //   circle(755, 150, 5); // ROOD
+  // }
 
   // BERGEN
   push();
@@ -148,6 +160,7 @@ function draw() {
   triangle(595, 180, 602, 140, 610, 180);
   pop();
 
+  // text("deneme", 20, 50);
   // COLOUR TEST
   // fill();
   // rect(20, 20, 5, 5);

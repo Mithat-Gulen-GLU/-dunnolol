@@ -117,12 +117,6 @@ function draw() {
 
   // COLORLESS
   push();
-  // if (presscount = 0) {
-  //   fill("black");
-  // circle(755, 180, 5); // GROEN
-  // circle(755, 165, 5); // GEEL
-  // circle(755, 150, 5); // ROOD
-  // }
   if (presscount == 1) {
     fill("black");
   circle(755, 165, 5); // GEEL

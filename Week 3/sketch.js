@@ -1,4 +1,6 @@
 let playerTurn = 0;
+// let cellX = 350;
+// let cellY = 100;
 let blueClick = false;
 let redClick = false;
 
@@ -12,8 +14,19 @@ function draw() {
 // TIC TAC TOE
 
 // CELLS
+
 push();
 fill(0, 0, 0);
+// rect(cellX, cellY, 50, 50);
+// rect(cellX += 150, cellY, 50, 50);
+// rect(cellX =+ 300, cellY, 50, 50);
+// rect(cellX, cellY += 150, 50, 50);
+// rect(cellX += 150, cellY += 150, 50, 50);
+// rect(cellX += 300, cellY += 150, 50, 50);
+// rect(cellX, cellY += 300, 50, 50);
+// rect(cellX += 150, cellY += 300, 50, 50);
+// rect(cellX += 300, cellY += 300, 50, 50);
+
 rect(350, 100, 50, 50);
 rect(450, 100, 50, 50);
 rect(550, 100, 50, 50);

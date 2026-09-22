@@ -19,7 +19,7 @@ push();
 fill(0, 0, 0);
 // rect(cellX, cellY, 50, 50);
 // rect(cellX += 150, cellY, 50, 50);
-// rect(cellX =+ 300, cellY, 50, 50);
+// rect(cellX += 300, cellY, 50, 50);
 // rect(cellX, cellY += 150, 50, 50);
 // rect(cellX += 150, cellY += 150, 50, 50);
 // rect(cellX += 300, cellY += 150, 50, 50);

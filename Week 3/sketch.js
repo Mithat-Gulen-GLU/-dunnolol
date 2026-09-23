@@ -62,9 +62,6 @@ function draw() {
   }
   pop();
 
-// MOUSE POSITION
-  circle(mouseX, mouseY, 50);
-
 // CELLS
 push();
 fill(0, 0, 0);
@@ -103,6 +100,19 @@ pop();
 
 // TURN-BASED-SYSTEM
 
+// RED TURN (1)
+if (redClick === true) {
+  if  (
+      mouseX > cellXpositie && mouseX < cellXpositie + cellWidth &&
+      mouseY > cellYpositie && mouseY < cellYpositie + cellHeight && mouseButton === LEFT
+      ) {
+      fill("red");
+      rect(cellXpositie, cellYpositie, cellWidth, cellHeight);
+  }
+}
+
+// BLUE TURN (1)
+
 // TURN LOOP (PART 1)
 if (playerTurn >= 3) {
   playerTurn = 1
@@ -110,37 +120,20 @@ if (playerTurn >= 3) {
 
 }
 
-// RED TURN
-
+// RED TURN (2)
 function mousePressed() {
 push();
 if (playerTurn === 1) {
   redClick = true;
   // console.log("red turn"+ playerTurn);
-
-// if(redClick === true) { 
-//   if  (
-//         mouseX > cellXpositie && mouseX < cellXpositie + cellWidth &&
-//         mouseY > cellYpositie && mouseY < cellYpositie + cellHeight
-//       ){
-//         fill(cell1 + "crimson");
-//       }
-// }
 }
 pop();
 
-// BLUE TURN
+// BLUE TURN (2)
 push();
 if (playerTurn === 2) {
   blueClick = true;
   // console.log("blue turn"+ playerTurn);
-
-// if  (
-//       mouseX > cellXpositie && mouseX < cellXpositie + cellWidth &&
-//       mouseY > cellYpositie && mouseY < cellYpositie + cellHeight
-//     ) {
-//   fill(cell1 + "blue");
-// }
 }
 pop();
 

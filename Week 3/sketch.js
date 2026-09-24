@@ -111,6 +111,7 @@ if (redClick === true && blueClick === false) {
       mouseY > cellYpositie && mouseY < cellYpositie + cellHeight && 
       mouseButton === LEFT // && mouseClick === 1
       ) {
+      // console.log(colors[2]);
       fill("red");
       rect(cellXpositie, cellYpositie, cellWidth, cellHeight);
   }

@@ -1,8 +1,12 @@
 // TIC TAC TOE
 
 let playerTurn = 1;
+// let mouseClick = 0;
 let blueClick = false;
 let redClick = false;
+
+// let colors = ["black", "blue", "red"]; // FIRST ARRAY ATTEMPT
+// let cells = [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9];
 
 // let testCellXPositie = 0;
 // let testCellYPositie = 0;
@@ -101,15 +105,19 @@ pop();
 // TURN-BASED-SYSTEM
 
 // RED TURN (1)
-if (redClick === true) {
+if (redClick === true && blueClick === false) {
   if  (
       mouseX > cellXpositie && mouseX < cellXpositie + cellWidth &&
-      mouseY > cellYpositie && mouseY < cellYpositie + cellHeight && mouseButton === LEFT
+      mouseY > cellYpositie && mouseY < cellYpositie + cellHeight && 
+      mouseButton === LEFT // && mouseClick === 1
       ) {
       fill("red");
       rect(cellXpositie, cellYpositie, cellWidth, cellHeight);
   }
 }
+// PROBLEMS WITH THE CODE ABOVE: 1 - COLOR CHANGE IS TEMPORARY 2 - COLOR CHANGE IS INCONSISTENT 
+// 3 - COLOR CHANGE TRIGGERS EVEN IF I CLICK OUT OF BOUNDS 4 - COLOR CHANGE STOPS IF I STOP HOVERING OVER THE CELL WITH MY CURSOR
+// 5 - I KNOW WHAT I AM DOING TO SOME DEGREE, BUT I DON'T HAVE THE WHY BEHIND IT, I THINK
 
 // BLUE TURN (1)
 
@@ -125,6 +133,7 @@ function mousePressed() {
 push();
 if (playerTurn === 1) {
   redClick = true;
+  blueClick = false;
   // console.log("red turn"+ playerTurn);
 }
 pop();
@@ -133,6 +142,7 @@ pop();
 push();
 if (playerTurn === 2) {
   blueClick = true;
+  redClick = false;
   // console.log("blue turn"+ playerTurn);
 }
 pop();
@@ -140,6 +150,7 @@ pop();
 // TURN LOOP (PART 2)
   if (mouseButton === LEFT) {
     playerTurn++;
+    mouseClick++;
     // console.log("clicked once");
     if (playerTurn >= 3) {
       playerTurn = 1;

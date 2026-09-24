@@ -1,12 +1,12 @@
 // TIC TAC TOE
 
 let playerTurn = 1;
-// let mouseClick = 0;
 let blueClick = false;
 let redClick = false;
 
-// let colors = ["black", "blue", "red"]; // FIRST ARRAY ATTEMPT
-// let cells = [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9];
+// let array1 = ["black", "blue", "red"]; // FIRST ARRAY ATTEMPT
+// let array2 = [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9];
+// PROMLEEM MET DE CODE BOVEN: IK WEET NIET HOE IK EEN ARRAY MOET GEBRUIKEN
 
 // let testCellXPositie = 0;
 // let testCellYPositie = 0;
@@ -68,7 +68,7 @@ function draw() {
 
 // CELLS
 push();
-fill(0, 0, 0);
+console.log(array1[0]);
 rect(cell1, cellXpositie, cellYpositie, cellWidth, cellHeight);
 rect(cell2, cellXpositie + 100, cellYpositie, cellWidth, cellHeight);
 rect(cell3, cellXpositie + 200, cellYpositie, cellWidth, cellHeight);
@@ -105,22 +105,31 @@ pop();
 // TURN-BASED-SYSTEM
 
 // RED TURN (1)
-if (redClick === true && blueClick === false) {
+if (redClick === true ) { // A SECOND CONDITION NEEDED TO MAKE THE COLOURING PERMANENT
   if  (
-      mouseX > cellXpositie && mouseX < cellXpositie + cellWidth &&
-      mouseY > cellYpositie && mouseY < cellYpositie + cellHeight && 
-      mouseButton === LEFT // && mouseClick === 1
+      mouseX > cellXpositie && mouseX < cellXpositie + cellWidth && // THIS IS JUST FOR CELL1 BTW...
+      mouseY > cellYpositie && mouseY < cellYpositie + cellHeight   // THIS IS JUST FOR CELL 1 BTW...
       ) {
-      // console.log(colors[2]);
-      fill("red");
+      console.log(array1[2]);
       rect(cellXpositie, cellYpositie, cellWidth, cellHeight);
   }
 }
 // PROBLEMS WITH THE CODE ABOVE: 1 - COLOR CHANGE IS TEMPORARY 2 - COLOR CHANGE IS INCONSISTENT 
-// 3 - COLOR CHANGE TRIGGERS EVEN IF I CLICK OUT OF BOUNDS 4 - COLOR CHANGE STOPS IF I STOP HOVERING OVER THE CELL WITH MY CURSOR
+// 3 - COLOR CHANGE TRIGGERS EVEN IF I CLICK OUT OF BOUNDS 
+// 4 - COLOR CHANGE STOPS IF I STOP HOVERING OVER THE CELL WITH MY CURSOR
 // 5 - I KNOW WHAT I AM DOING TO SOME DEGREE, BUT I DON'T HAVE THE WHY BEHIND IT, I THINK
 
 // BLUE TURN (1)
+
+if (blueClick === true ) { // A SECOND CONDITION NEEDED TO MAKE THE COLOURING PERMANENT
+  if  (
+      mouseX > cellXpositie && mouseX < cellXpositie + cellWidth && // THIS IS JUST FOR CELL1 BTW...
+      mouseY > cellYpositie && mouseY < cellYpositie + cellHeight   // THIS IS JUST FOR CELL 1 BTW...
+      ) {
+      console.log(array1[1]);
+      rect(cellXpositie, cellYpositie, cellWidth, cellHeight);
+  }
+}
 
 // TURN LOOP (PART 1)
 if (playerTurn >= 3) {

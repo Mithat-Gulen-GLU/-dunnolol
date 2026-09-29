@@ -37,6 +37,21 @@ function draw() {
     rect([spawnPositionX], [spawnPositionY], 20, 20); // BUG-F1
   }
 
+  for (let index = 0; index < 25; index++) {
+    circle([spawnPositionX], [spawnPositionY], 20);
+  }
+
+  // for (let index = 0; index < 25; index++) {
+  //   triangle([spawnPositionX], [spawnPositionY], 1, 2, 3, 4);
+  // }
+
+  // for (let index = 0; index < 25; index++) {
+  //   ellipse([spawnPositionX], [spawnPositionY], 20);
+  // }
+
+
+
+
   // BUG FIXING
   // FOR LOOP MUST GENERATE 25 RECTANGLES AT SEPERATELY RANDOMIZED SPOTS = BUG-F1
 }

@@ -1,94 +1,96 @@
-// VARIABLES & ARRAYS
-let shapeColour = 0;
-// let number = 25;
+// VARIABLES & ARRAYS:
 
-// FORMS (1)
-let rectangles = [] // RECTANGLES (1) // MAY ACTUALLY NOT BE NEEDED
-let circles = [] // CIRCLES (1) // MAY ACTUALLY NOT BE NEEDED
-let triangles = [] // TRIANGLES (1) // MAY ACTUALLY BE SCRAPPED
-let ellipses = [] // ELLIPSES (1)
-let hexagons = [] // HEXAGONS (1, EXPERIMENTAL) // MAY ACTUALLY BE SCRAPPED
+// FORMS ADDED:
+// RECTANGLES
+// CIRCLES
+// ELLIPSES
+// TRIANGLES (SCRAPPED, REASON = IMPOSSIBLE TO BALANCE SIZE)
+// HEXAGONS (SCRAPPED, REASON = IMPOSSIBLE TO SHAPE AN ELLIPSE INTO A HEXAGON)
 
-// POSITION (1)
-let spawnPositionX = []
-let spawnPositionY = []
+// COLOURS: (1)
+let colours = ["red", "yellow", "green", "white", "gray", "blue", "purple", "orange"];
 
-// MOVEMENT (1)
-let speed = [5, 10, 15, 20]
-
-// COLOURS (1)
-let colours = ["red", "yellow", "green", "black", "gray", "blue", "purple", "orange"]
-
-// NUMBER (1)
-let numbers = []
-
-function setup() {
+function setup() { // SETUP FUNCTION
   createCanvas(800, 600);
 
-  // POSITION (2)
-  spawnPositionX.push(int(random(0, 780)));
-  spawnPositionY.push(int(random(0, 580)));
-
-  // MOVEMENT (2)
-
-  // COLOURS (2)
-
-  // NUMBER (2)
-  numbers.push(int(random(0, 25)));
+  // GENERATION SPEED:
+  frameRate(1);
 }
 
-function draw() {
+function draw() { // DRAW FUNCTION
   background(0);
 
-  // PROSEDURAL GENERATION
+  // PROSEDURAL GENERATION:
 
-  // RECTANGLES (2)
+  // RECTANGLES:
   push();
-  for (let index = 0; index < 25; index++) {
-    fill(colours[0]);
-    rect(random(20, 780), random(20, 580), 20, 20); // BUG-SP1
+  noStroke();
+  for (let index = random(1, 25); index < 25; index++) {
+    fill(random(colours));
+    rect(random(20, 780), random(20, 580), 20, 20);
   }
   pop();
 
-  // CIRCLES (2)
+  // CIRCLES:
   push();
-  for (let index2 = 0; index2 < 25; index2++) {
-    fill(colours[1]);
-    circle(random(20, 780), random(20, 580), 20); // BUG-SP1
+  noStroke();
+  for (let index2 = random(1, 25); index2 < 25; index2++) {
+    fill(random(colours));
+    circle(random(20, 780), random(20, 580), 20);
   }
   pop();
 
-  // TRIANGLES (2, EXPERIMENTAL, MIGHT BE SCRAPPED)
-  // for (let index3 = 0; index3 < 25; index3++) {
-  //   triangle([spawnPositionX], [spawnPositionY], 1, 2, 3, 4);
-  // }
-
-  // ELLIPSES (2)
+  // ELLIPSES:
   push();
-  for (let index4 = 0; index4 < 25; index4++) {
-    fill(colours[2]);
-    ellipse(random(20, 780), random(20, 580), 20, 10); // BUG-SP1
+  noStroke();
+  for (let index3 = random(1, 25); index3 < 25; index3++) {
+    fill(random(colours));
+    ellipse(random(20, 780), random(20, 580), 20, 10);
   }
   pop();
-
-  // HEXAGONS (2, EXPERIMENTAL, MIGHT BE SCRAPPED)
-  // for (let index5 = 0; index5 < 25; index5++) {
-  //   ellipse(random(20, 780), random(20, 580), 20, 10, 6); // BUG-HX1
-  // }
-
-  // BUG FIXING
-  // FOR LOOP MUST GENERATE 25 RECTANGLES AT SEPERATELY RANDOMIZED SPOTS = BUG-F1R // FIXED
-  // FOR LOOP MUST GENERATE 25 CIRCLES AT SEPERATELY RANDOMIZED SPOTS = BUG-F2C // FIXED
-  // CIRCLES AND RECTANGLES MUSN'T OVERLAP = BUG-O1 // FIXED
-  // GENERATED FORMS TOO FAST = BUG-SP1
-  // HEXAGONS HAVE TO HAVE 6 VERTICES, THEY DON'T HAVE 6 VERTİCES = BUG-HX1
 }
 
-// ACTIVATION-BY-BACKSPACE
-// function keyPressed() {
-//   if (keyCode === BACKSPACE) {
-//     PER CLICK, THE POSITIONS AND THE COLOR MUST CHANGE
-//     spawnPositionX.push(int(random(0, 780)));
-//     spawnPositionY.push(int(random(0, 580)));
-//   }
-// }
+// ACTIVATION-BY-BACKSPACE:
+
+function keyPressed() { // BUTTON-CLICK-CHECK FUNCTION
+if (keyCode === BACKSPACE) { // BUG-BC1
+
+  // RECTANGLES:
+  push();
+  noStroke();
+  for (let index = random(1, 25); index < 25; index++) {
+    fill(random(colours));
+    rect(random(20, 780), random(20, 580), 20, 20);
+  }
+  pop();
+
+  // CIRCLES:
+  push();
+  noStroke();
+  for (let index2 = random(1, 25); index2 < 25; index2++) {
+    fill(random(colours));
+    circle(random(20, 780), random(20, 580), 20);
+  }
+  pop();
+
+  // ELLIPSES:
+  push();
+  noStroke();
+  for (let index3 = random(1, 25); index3 < 25; index3++) {
+    fill(random(colours));
+    ellipse(random(20, 780), random(20, 580), 20, 10);
+  }
+  pop();
+
+  spawnPositionX.push(int(random(0, 780)));
+  spawnPositionY.push(int(random(0, 580)));
+  }
+}
+
+// BUG FIXING:
+
+// FOR LOOP MUST GENERATE 25 RECTANGLES AT SEPERATELY RANDOMIZED SPOTS = BUG-FL1R // FIXED
+// FOR LOOP MUST GENERATE 25 CIRCLES AT SEPERATELY RANDOMIZED SPOTS = BUG-FL2C // FIXED
+// CIRCLES AND RECTANGLES MUST NOT OVERLAP = BUG-OV1 // FIXED
+// FORM GENERATION SPEED IS TOO FAST = BUG-GSP1 // FIXED
+// BUTTON CLICK ACTIVATES THE CODE THAT GENERATES SHAPES ON TOP OF THE ALREADY ACTIVE CODE THAT GENERATES SHAPES = BUG-BC1 // IS A DESIGN CHOICE (I KNOW, CHEESY AND LAZY)

@@ -8,7 +8,7 @@
 // HEXAGONS (SCRAPPED, REASON = IMPOSSIBLE TO SHAPE AN ELLIPSE INTO A HEXAGON)
 
 // COLOURS: (1)
-let colours = ["red", "yellow", "green", "white", "gray", "blue", "purple", "orange"];
+let colours = ["red", "yellow", "green", "white", "gray", "blue", "purple", "orange", "crimson", "cyan", "turquoise", "gold", "magenta", "lilac", "brown"];
 
 function setup() { // SETUP FUNCTION
   createCanvas(800, 600);
@@ -94,3 +94,6 @@ if (keyCode === BACKSPACE) { // BUG-BC1
 // CIRCLES AND RECTANGLES MUST NOT OVERLAP = BUG-OV1 // FIXED
 // FORM GENERATION SPEED IS TOO FAST = BUG-GSP1 // FIXED
 // BUTTON CLICK ACTIVATES THE CODE THAT GENERATES SHAPES ON TOP OF THE ALREADY ACTIVE CODE THAT GENERATES SHAPES = BUG-BC1 // IS A DESIGN CHOICE (I KNOW, CHEESY AND LAZY)
+
+// BONUS
+// Z

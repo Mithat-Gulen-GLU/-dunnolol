@@ -97,3 +97,5 @@ if (keyCode === BACKSPACE) { // BUG-BC1
 
 // BONUS
 // Z
+
+// als ik naar de BACKSPACE knopje druk, dan gaat het activeren

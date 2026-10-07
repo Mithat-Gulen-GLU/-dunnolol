@@ -1,9 +1,4 @@
 // ARRAYS & VARIABLES
-// let fotographs = 
-// [
-//   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRntDZ1bpzcoDgEgEbC1KWRLEFGUA0ReP89dSwr0Y48UFTOux3FGyQfbdaa&s=10", // BUG-FL-1 // [TEMPORARILY] FIXED
-//   ""
-// ];
 let img;
 
 function setup() {
@@ -14,7 +9,7 @@ function setup() {
 
 function draw() {
   background(220);
-  // button.position(20, 20); // BUG-BOB-1
+  // button.position(20, 20); // BUG-OB-1
   // MINECRAFT QUIZZ (THE NETHEROLOGIST EDITION™)
   // JOKE QUESTION (WIE WILL GEEN MILJAARDEN HEBBEN? A:IKKE! B:IKKE! C:IKKE! D:IKKE!)
   // 5 VRAGEN MET 4 MOGELIJKE ANTWOORDEN
@@ -23,7 +18,9 @@ function draw() {
 }
 
 function preload() {
-  img = loadImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRntDZ1bpzcoDgEgEbC1KWRLEFGUA0ReP89dSwr0Y48UFTOux3FGyQfbdaa&s=10"); // BUG-FL-1 // [TEMPORARILY] FIXED
+  img = loadImage("img/kapak_fotosu.png");
+  // img = loadImage(img/res_alba_volans_netheriensis.png);
+  // img = loadImage(img/who_built.png);
 }
 
 // QUESTIONS
@@ -32,5 +29,5 @@ function preload() {
 // }
 
 // BUGFIXING
-// BUTTON OUT OF BOUNDS = BUG-BOB-1
-// FOTO NOT LOADING = BUG-FL-1 // [TEMPORARILY] FIXED, WILL TRY TO REPLACE THE URL WITH LOCAL SCREENSHOT
+// BUTTON OUT OF BOUNDS = BUG-OB-1
+// FOTO NOT LOADING = BUG-FL-1 // FIXED

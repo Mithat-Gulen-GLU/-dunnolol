@@ -7,11 +7,14 @@
 let img;
 
 function setup() {
+  // BUTTONS MUST BE PLACED HERE
+  let button = createButton("Touch me"); // BUG-BOB-1
   createCanvas(800, 600);
 }
 
 function draw() {
   background(220);
+  // button.position(20, 20); // BUG-BOB-1
   // MINECRAFT QUIZZ (THE NETHEROLOGIST EDITION™)
   // JOKE QUESTION (WIE WILL GEEN MILJAARDEN HEBBEN? A:IKKE! B:IKKE! C:IKKE! D:IKKE!)
   // 5 VRAGEN MET 4 MOGELIJKE ANTWOORDEN
@@ -29,4 +32,5 @@ function preload() {
 // }
 
 // BUGFIXING
+// BUTTON OUT OF BOUNDS = BUG-BOB-1
 // FOTO NOT LOADING = BUG-FL-1 // [TEMPORARILY] FIXED, WILL TRY TO REPLACE THE URL WITH LOCAL SCREENSHOT

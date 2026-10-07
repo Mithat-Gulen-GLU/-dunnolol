@@ -19,6 +19,7 @@ function draw() {
   image(img, 0, 0);
 
   for (let i = 0; i < colours.length; i++) {
+    z
   }
 }
 

@@ -43,7 +43,6 @@ function keyPressed() {
 
 
 // RELEASE
-
 function keyReleased() {
   if (keyCode === ENTER) {
     console.log("Werkt niet meer!");

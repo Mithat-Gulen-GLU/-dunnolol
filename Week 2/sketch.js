@@ -12,6 +12,7 @@ function setup() {
 function draw() {
   background(173, 216, 230);
 
+  // CODING VALUES (UNNECESSARY IN THE FINAL PRODUCT)
   // push();
   // fill("black");
   // text("timer:" + timer, 20, 40);

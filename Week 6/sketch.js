@@ -1,5 +1,6 @@
 // ARRAYS, DATA-OBJECTS & VARIABLES
 // let radiance = 0;
+let imagesPet = [];
 let width = 100;
 const maxStats = 100;
 let stats = {
@@ -19,11 +20,18 @@ let decreases = {
 function setup() {
   createCanvas(800, 600);
 
+  background("gray")
+
+  let button = createButton("Shop");
+  button.position(700, 20);
+
   frameRate(30);
 }
 
 function draw() {
   background(220);
+
+  image(imagesPet[0], 300, 200, 100, 100);
 
   // push();
   // noStroke();
@@ -74,10 +82,23 @@ function updateStats() {
     pop();
 
     if (stats[key] == 0) {
-      text("You dead bro", 250, 250);
+      text("Jabba is dead bro...", 300, 175);
+      image(imagesPet[1], 300, 200, 100, 100);
     }
   }
 }
 
+function preload() {
+  imagesPet[0] = loadImage("img/pet.png");
+  imagesPet[1] = loadImage("img/petDead.png");
+}
+
+// function SHOP() {
+//
+// }
+
 // BUGFIXING
 // CLICKS DON'T ALWAYS REGISTER = BUG-CR-1 // FIXED
+
+// BRAINSTORMING
+// I WANT TO MAE IT SO THAT IF I TOUCH THE BUTTON, THEN IT WON'T TRIGGER THE FEEDING PET CODE

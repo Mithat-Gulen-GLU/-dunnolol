@@ -98,6 +98,7 @@ function preload() {
 // }
 
 // BUGFIXING
+// SHOP BUTTON
 // CLICKS DON'T ALWAYS REGISTER = BUG-CR-1 // FIXED
 
 // BRAINSTORMING

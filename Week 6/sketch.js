@@ -1,16 +1,16 @@
 // ARRAYS, DATA-OBJECTS & VARIABLES
 // let radiance = 0;
-let imagesPet = [];
-let width = 100;
-const maxStats = 100;
+let imagesPet = []; // necessary for pet states
+let width = 100; // necessary for stat bars
+const maxStats = 100; // cap for stat bars
 let stats = {
   health: maxStats,
-  energy: maxStats,
+  energy: maxStats,       // stats
   happiness: maxStats,
   hunger: maxStats
 };
 
-let decreases = {
+let decreases = { // sets the amount by which stats decrease with the passage of time
   health: 1,
   energy: 0.5,
   happiness: 1.5,
@@ -22,7 +22,7 @@ function setup() {
 
   background("gray")
 
-  let button = createButton("Shop");
+  let button = createButton("Shop"); // shop button, opens up the show when clicked
   button.position(700, 20);
 
   frameRate(30);
@@ -31,27 +31,27 @@ function setup() {
 function draw() {
   background(220);
 
-  image(imagesPet[0], 300, 200, 100, 100);
+  image(imagesPet[0], 300, 200, 100, 100); // shows the image of the pet being alive
 
   // push();
   // noStroke();
   // fill("Orange");
-  // circle(350, 200, 50);
+  // circle(350, 200, 50);            // tried to make a radiant sun behind the pet with these lines of code, didn't work, will get to it later
   // fill("Gold");
   // circle(350, 200, 50 + radiance);
   // pop();
 
-  updateStats();
+  updateStats(); // runs the codes having to do with the creation of stat rectangles, stat decaying, and the stat increment per mouse click
 }
 
 // FUNCTIONS
 function mousePressed() {
   if (mouseButton == LEFT) {
-    for (let i = 0; i < Object.keys(stats).length; i++) {
+    for (let i = 0; i < Object.keys(stats).length; i++) { // increases stats by 5 per mouse click, used to keep the pet alive
       let key = Object.keys(stats)[i];
       stats[key] += 5;
       if (stats[key] > maxStats) {
-        stats[key] = maxStats;
+        stats[key] = maxStats; // makes it so that stats cannot exceed the 100/100 limit
       }
     }
   }
@@ -60,12 +60,12 @@ function mousePressed() {
 function updateStats() {  
   for (let i = 0; i < Object.keys(stats).length; i++) {
     let key = Object.keys(stats)[i];
-    stats[key] -= decreases[key] * deltaTime / 1000;
+    stats[key] -= decreases[key] * deltaTime / 1000; // decreases states with the passage of time, "key" refers to the entire list of elements within the array
     if (stats[key] < 0) {
       stats[key] = 0;
     }
     push();
-    rect(20, 20 + (30 * i), 100, 20);
+    rect(20, 20 + (30 * i), 100, 20); // bars being given colours based on array
       if (i == 0){
         fill("red");
       }
@@ -78,22 +78,22 @@ function updateStats() {
       else if (i == 3){
         fill("blue");
       }
-    rect(20, 20 + (30 * i), 100 * (stats[key] / maxStats), 20);
+    rect(20, 20 + (30 * i), 100 * (stats[key] / maxStats), 20); // bars being made out of rectangles to represent 100/100 stats
     pop();
 
     if (stats[key] == 0) {
-      text("Jabba is dead bro...", 300, 175);
+      text("Jabba is dead bro...", 300, 175); // shows the image where the pet is dead depending on any stats being equal to 0
       image(imagesPet[1], 300, 200, 100, 100);
     }
   }
 }
 
 function preload() {
-  imagesPet[0] = loadImage("img/pet.png");
-  imagesPet[1] = loadImage("img/petDead.png");
+  imagesPet[0] = loadImage("img/pet.png"); // Pet is alive
+  imagesPet[1] = loadImage("img/petDead.png"); // pet is dead
 }
 
-// function SHOP() {
+// function SHOP() { // shop function, necessary for the contents of the shop button
 //
 // }
 
@@ -102,4 +102,5 @@ function preload() {
 // CLICKS DON'T ALWAYS REGISTER = BUG-CR-1 // FIXED
 
 // BRAINSTORMING
-// I WANT TO MAE IT SO THAT IF I TOUCH THE BUTTON, THEN IT WON'T TRIGGER THE FEEDING PET CODE
+// I WANT TO MAKE IT SO THAT IF I TOUCH THE SHOP BUTTON, THEN IT WON'T TRIGGER THE FEEDING PET CODE
+// I WANT TO MAKE IT SO THAT THE LONGER THE PET IS ALIVE, THE MORE YOU EARN COINS

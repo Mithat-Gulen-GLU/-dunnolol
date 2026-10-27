@@ -66,6 +66,7 @@ function draw() {
   push();
   textSize(24);
   text("Items:", 20, 380);
+  text("Money:", 120, 380);
   fill("gold");
   rect(0, 400, 800, 200);
   pop();

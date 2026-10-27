@@ -1,6 +1,7 @@
 // ARRAYS, DATA-OBJECTS & VARIABLES
 // let radiance = 0;
 let imagesPet = []; // necessary for pet states
+// let imagesShop = []; // necessary for shop items
 let width = 100; // necessary for stat bars
 const maxStats = 100; // cap for stat bars
 let stats = {
@@ -24,6 +25,8 @@ function setup() {
 
   let button = createButton("Shop"); // shop button, opens up the show when clicked
   button.position(700, 20);
+  // button.show
+  // button.hide
 
   frameRate(30);
 }
@@ -60,12 +63,12 @@ function mousePressed() {
 function updateStats() {  
   for (let i = 0; i < Object.keys(stats).length; i++) {
     let key = Object.keys(stats)[i];
-    stats[key] -= decreases[key] * deltaTime / 1000; // decreases states with the passage of time, "key" refers to the entire list of elements within the array
+    stats[key] -= decreases[key] * deltaTime / 1000; // decreases stats with the passage of time, "key" refers to the entire list of elements within the array
     if (stats[key] < 0) {
       stats[key] = 0;
     }
     push();
-    rect(20, 20 + (30 * i), 100, 20); // bars being given colours based on array
+    rect(20, 20 + (30 * i), 100, 20); // bars being given colours based on position within the array
       if (i == 0){
         fill("red");
       }
@@ -88,19 +91,22 @@ function updateStats() {
   }
 }
 
-function preload() {
+function preload() { // necessary for pet state images
   imagesPet[0] = loadImage("img/pet.png"); // Pet is alive
   imagesPet[1] = loadImage("img/petDead.png"); // pet is dead
 }
 
 // function SHOP() { // shop function, necessary for the contents of the shop button
-//
+//   if (button clicked) {
+//  
+//   }
 // }
 
 // BUGFIXING
-// SHOP BUTTON
+// SHOP BUTTON  TRIGGERS FEEDING PET CODE
 // CLICKS DON'T ALWAYS REGISTER = BUG-CR-1 // FIXED
 
 // BRAINSTORMING
 // I WANT TO MAKE IT SO THAT IF I TOUCH THE SHOP BUTTON, THEN IT WON'T TRIGGER THE FEEDING PET CODE
 // I WANT TO MAKE IT SO THAT THE LONGER THE PET IS ALIVE, THE MORE YOU EARN COINS
+// I WANT TO GIVE HUNGER IMMUNITY IF JABBA EATS HAN SOLO STONE, HAN SOLO STONE IS SHOP ITEM THAT IS BOUGHT WITH 100 GOLD

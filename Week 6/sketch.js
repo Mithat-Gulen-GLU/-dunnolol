@@ -1,7 +1,7 @@
 // ARRAYS, DATA-OBJECTS & VARIABLES
 // let radiance = 0;
 let imagesPet = []; // necessary for pet states
-// let imagesShop = []; // necessary for shop items
+let imagesShop = []; // necessary for shop items
 let width = 100; // necessary for stat bars
 const maxStats = 100; // cap for stat bars
 let stats = {
@@ -25,6 +25,7 @@ function setup() {
 
   let button = createButton("Shop"); // shop button, opens up the show when clicked
   button.position(700, 20);
+  button.mousePressed(shop);
   // button.show
   // button.hide
 
@@ -43,7 +44,6 @@ function draw() {
   // fill("Gold");
   // circle(350, 200, 50 + radiance);
   // pop();
-
   updateStats(); // runs the codes having to do with the creation of stat rectangles, stat decaying, and the stat increment per mouse click
 }
 
@@ -92,15 +92,22 @@ function updateStats() {
 }
 
 function preload() { // necessary for pet state images
+  // pet states
   imagesPet[0] = loadImage("img/pet.png"); // Pet is alive
   imagesPet[1] = loadImage("img/petDead.png"); // pet is dead
+
+  // Shop Items
+  imagesShop[0] = loadImage("img/shopItems/shopItemOneSoap.png"); // item 1, cleans pet
+  imagesShop[1] = loadImage("img/shopItems/shopItemTwoDawgbone.png"); // item 2, plays games with pet
+  imagesShop[2] = loadImage("img/shopItems/shopItemThreeTwinkleTheLittleStar.png") // item 3, makes pet fall asleep
+  imagesShop[3] = loadImage("img/shopItems/ShopItemFourHanSoloStone.png") // item 4, makes pet immune to hunger
 }
 
-// function SHOP() { // shop function, necessary for the contents of the shop button
-//   if (button clicked) {
-//  
-//   }
-// }
+function shop() { // shop function, necessary for the shop button
+  for (let i = 0; i < imagesShop.length; i++) {
+    rect(500, 40, 50, 50);
+  }
+}
 
 // BUGFIXING
 // SHOP BUTTON  TRIGGERS FEEDING PET CODE

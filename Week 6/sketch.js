@@ -170,8 +170,7 @@ function shop() { // shop function, necessary for the shop button
 // getItem and storeItem
 // if (getItem("honger") == null) {
 // honger = 100
-// }
-// else{
+// } else{
 // honger = getItem("honger");
 // honger 100;
 // }

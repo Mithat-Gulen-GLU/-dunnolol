@@ -53,6 +53,12 @@ function draw() {
     rect(620, 40, 50, 50);
     rect(680, 40, 50, 50);
   }
+
+  push();
+  textSize(24);
+  text("Items:", 20, 380);
+  rect(0, 400, 800, 200);
+  pop();
 }
 
 // FUNCTIONS

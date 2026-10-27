@@ -27,6 +27,7 @@ function setup() {
   let button = createButton("Shop"); // shop button, opens up the show when clicked
   button.position(700, 20);
   button.mousePressed(shop);
+  button.style("background-color", "gold");
   // button.show
   // button.hide
 
@@ -64,10 +65,21 @@ function draw() {
 
   push();
   textSize(24);
-  noStroke();
   text("Items:", 20, 380);
-  fill("gray");
+  fill("gold");
   rect(0, 400, 800, 200);
+  pop();
+
+  push();
+  textSize(24);
+  image(itemsShop[0], 150, 500, 50, 50);
+  image(itemsShop[1], 300, 500, 50, 50);
+  image(itemsShop[2], 450, 500, 50, 50);
+  image(itemsShop[3], 600, 500, 50, 50);
+  text("0x", 220, 530);
+  text("0x", 370, 530);
+  text("0x", 520, 530);
+  text("0x", 670, 530);
   pop();
 }
 
@@ -133,6 +145,16 @@ function shop() { // shop function, necessary for the shop button
    } else {
     shopVisible = true;
    }
+
+  //  if (mouse hovers over a shop item) {
+  //    show item description
+  //  } else if (mouse hovers over a shop item and clicks) {
+  //    purchase the shop item (shop item counter +1)
+  //  }
+  //
+  //  if (shop item counter +1) {
+  //    inform the texts in draw so that they update and become, for instance, "1x" or "27x"
+  //  }
 }
 
 // BUGFIXING
@@ -143,3 +165,16 @@ function shop() { // shop function, necessary for the shop button
 // I WANT TO MAKE IT SO THAT THE LONGER THE PET IS ALIVE, THE MORE YOU EARN COINS
 // I WANT TO MAKE IT SO THAT HOVERING OVER SHOP ITEMS SHOWS THEIR DESCRIPTION
 // I WANT TO GIVE HUNGER IMMUNITY IF JABBA EATS HAN SOLO STONE, HAN SOLO STONE IS A SHOP ITEM THAT IS BOUGHT WITH 100 GOLD
+
+// SETUP
+// getItem and storeItem
+// if (getItem("honger") == null) {
+// honger = 100
+// }
+// else{
+// honger = getItem("honger");
+// honger 100;
+// }
+
+// DRAW
+// storeItem("honger", honger);

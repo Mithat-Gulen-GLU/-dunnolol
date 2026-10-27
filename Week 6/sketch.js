@@ -1,7 +1,7 @@
 // ARRAYS, DATA-OBJECTS & VARIABLES
 // let radiance = 0;
 let imagesPet = []; // necessary for pet states
-let imagesShop = []; // necessary for shop items
+let itemsShop = []; // necessary for shop items
 let width = 100; // necessary for stat bars
 let shopVisible  = false;  
 const maxStats = 100; // cap for stat bars
@@ -37,6 +37,10 @@ function draw() {
   background(220);
 
   image(imagesPet[0], 300, 200, 100, 100); // shows the image of the pet being alive
+  push();
+  textSize(24);
+  text("Keep Jabba Alive Challenge", 150, 40);
+  pop();
 
   // push();
   // noStroke();
@@ -52,11 +56,17 @@ function draw() {
     rect(560, 40, 50, 50);
     rect(620, 40, 50, 50);
     rect(680, 40, 50, 50);
+    image(itemsShop[0], 500, 40, 50, 50);
+    image(itemsShop[1], 560, 40, 50, 50);
+    image(itemsShop[2], 620, 40, 50, 50);
+    image(itemsShop[3], 680, 40, 50, 50);
   }
 
   push();
   textSize(24);
+  noStroke();
   text("Items:", 20, 380);
+  fill("gray");
   rect(0, 400, 800, 200);
   pop();
 }
@@ -111,10 +121,10 @@ function preload() { // necessary for pet state images
   imagesPet[1] = loadImage("img/petDead.png"); // pet is dead
 
   // Shop Items
-  imagesShop[0] = loadImage("img/shopItems/shopItemOneSoap.png"); // item 1, cleans pet
-  imagesShop[1] = loadImage("img/shopItems/shopItemTwoDawgbone.png"); // item 2, plays games with pet
-  imagesShop[2] = loadImage("img/shopItems/shopItemThreeTwinkleTheLittleStar.png") // item 3, makes pet fall asleep
-  imagesShop[3] = loadImage("img/shopItems/ShopItemFourHanSoloStone.png") // item 4, makes pet immune to hunger
+  itemsShop[0] = loadImage("img/shopItems/shopItemOneSoap.png"); // item 1, cleans pet
+  itemsShop[1] = loadImage("img/shopItems/shopItemTwoDawgbone.png"); // item 2, plays games with pet
+  itemsShop[2] = loadImage("img/shopItems/shopItemThreeTwinkleTheLittleStar.png") // item 3, makes pet fall asleep
+  itemsShop[3] = loadImage("img/shopItems/ShopItemFourHanSoloStone.png") // item 4, makes pet immune to hunger
 }
 
 function shop() { // shop function, necessary for the shop button
@@ -130,6 +140,6 @@ function shop() { // shop function, necessary for the shop button
 // CLICKS DON'T ALWAYS REGISTER = BUG-CR-1 // FIXED
 
 // BRAINSTORMING
-// I WANT TO MAKE IT SO THAT IF I TOUCH THE SHOP BUTTON, THEN IT WON'T TRIGGER THE FEEDING PET CODE
 // I WANT TO MAKE IT SO THAT THE LONGER THE PET IS ALIVE, THE MORE YOU EARN COINS
-// I WANT TO GIVE HUNGER IMMUNITY IF JABBA EATS HAN SOLO STONE, HAN SOLO STONE IS SHOP ITEM THAT IS BOUGHT WITH 100 GOLD
+// I WANT TO MAKE IT SO THAT HOVERING OVER SHOP ITEMS SHOWS THEIR DESCRIPTION
+// I WANT TO GIVE HUNGER IMMUNITY IF JABBA EATS HAN SOLO STONE, HAN SOLO STONE IS A SHOP ITEM THAT IS BOUGHT WITH 100 GOLD

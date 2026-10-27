@@ -3,6 +3,7 @@
 let imagesPet = []; // necessary for pet states
 let imagesShop = []; // necessary for shop items
 let width = 100; // necessary for stat bars
+let shopVisible  = false;  
 const maxStats = 100; // cap for stat bars
 let stats = {
   health: maxStats,
@@ -45,6 +46,13 @@ function draw() {
   // circle(350, 200, 50 + radiance);
   // pop();
   updateStats(); // runs the codes having to do with the creation of stat rectangles, stat decaying, and the stat increment per mouse click
+
+  if (shopVisible) {
+    rect(500, 40, 50, 50);
+    rect(560, 40, 50, 50);
+    rect(620, 40, 50, 50);
+    rect(680, 40, 50, 50);
+  }
 }
 
 // FUNCTIONS
@@ -81,11 +89,11 @@ function updateStats() {
       else if (i == 3){
         fill("blue");
       }
-    rect(20, 20 + (30 * i), 100 * (stats[key] / maxStats), 20); // bars being made out of rectangles to represent 100/100 stats
+    rect(20, 20 + (30 * i), 100 * (stats[key] / maxStats), 20); // stat bars being made out of rectangles to represent 100/100 stats
     pop();
 
     if (stats[key] == 0) {
-      text("Jabba is dead bro...", 300, 175); // shows the image where the pet is dead depending on any stats being equal to 0
+      text("Jabba is dead bro...", 300, 175); // shows the image where the pet is dead depending on any stats being equal to 0 with a death message
       image(imagesPet[1], 300, 200, 100, 100);
     }
   }
@@ -104,9 +112,11 @@ function preload() { // necessary for pet state images
 }
 
 function shop() { // shop function, necessary for the shop button
-  for (let i = 0; i < imagesShop.length; i++) {
-    rect(500, 40, 50, 50);
-  }
+   if (shopVisible == true) {
+    shopVisible = false;
+   } else {
+    shopVisible = true;
+   }
 }
 
 // BUGFIXING

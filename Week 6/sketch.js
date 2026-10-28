@@ -4,6 +4,8 @@ let imagesPet = []; // necessary for pet states
 let itemsShop = []; // necessary for shop items
 let width = 100; // necessary for stat bars
 let shopVisible  = false;  
+let timeElapsed = 0;
+let money = 0;
 const maxStats = 100; // cap for stat bars
 let stats = {
   health: maxStats,
@@ -43,6 +45,12 @@ function draw() {
   text("Keep Jabba Alive Challenge", 150, 40);
   pop();
 
+  timeElapsed += deltaTime;
+  if (timeElapsed >= 10000 && stats[key] != 0) {
+    money += 10;
+    timeElapsed = 0;
+  }
+
   // push();
   // noStroke();
   // fill("Orange");
@@ -66,7 +74,7 @@ function draw() {
   push();
   textSize(24);
   text("Items:", 20, 380);
-  text("Money:", 120, 380);
+  text("Money:" + money, 120, 380);
   fill("gold");
   rect(0, 400, 800, 200);
   pop();

@@ -3,15 +3,16 @@
 let imagesPet = []; // necessary for pet states
 let itemsShop = []; // necessary for shop items
 let width = 100; // necessary for stat bars
-let shopVisible  = false;  
-let timeElapsed = 0;
-let money = 0;
+let shopVisible  = false; // necessary for shop loop
+let timeElapsed = 0; // necessary for time calculation
+let money = 0; // necessary for money gain and shop loop
 const maxStats = 100; // cap for stat bars
+
 let stats = {
-  health: maxStats,
+  health: maxStats,       // stats
   energy: maxStats,       // stats
-  happiness: maxStats,
-  hunger: maxStats
+  happiness: maxStats,    // stats
+  hunger: maxStats        // stats
 };
 
 let decreases = { // sets the amount by which stats decrease with the passage of time
@@ -39,16 +40,16 @@ function setup() {
 function draw() {
   background(220);
 
-  image(imagesPet[0], 300, 200, 100, 100); // shows the image of the pet being alive
+  image(imagesPet[0], 300, 200, 100, 100); // shows the image of the pet (alive)
   push();
   textSize(24);
-  text("Keep Jabba Alive Challenge", 150, 40);
+  text("Keep Jabba Alive Challenge", 150, 40); // name of the game
   pop();
 
-  timeElapsed += deltaTime;
-  if (timeElapsed >= 10000 && stats[key] != 0) {
-    money += 10;
-    timeElapsed = 0;
+  timeElapsed += deltaTime; // time calculation
+  if (timeElapsed >= 10000 && stats[key] != 0) { // time calculation and code triggering based on any of the stat bars hitting 0
+    money += 10; // money gain
+    timeElapsed = 0; // resetting time calculation
   }
 
   // push();
@@ -60,23 +61,23 @@ function draw() {
   // pop();
   updateStats(); // runs the codes having to do with the creation of stat rectangles, stat decaying, and the stat increment per mouse click
 
-  if (shopVisible) {
+  if (shopVisible) { // shop
     rect(500, 40, 50, 50);
     rect(560, 40, 50, 50);
     rect(620, 40, 50, 50);
     rect(680, 40, 50, 50);
-    image(itemsShop[0], 500, 40, 50, 50);
-    image(itemsShop[1], 560, 40, 50, 50);
-    image(itemsShop[2], 620, 40, 50, 50);
-    image(itemsShop[3], 680, 40, 50, 50);
+    image(itemsShop[0], 500, 40, 50, 50); // item 1: soap
+    image(itemsShop[1], 560, 40, 50, 50); // item 2: dawgbone
+    image(itemsShop[2], 620, 40, 50, 50); // item 3: twinkle, the little star
+    image(itemsShop[3], 680, 40, 50, 50); // item 4: han solo stone
   }
 
   push();
   textSize(24);
-  text("Items:", 20, 380);
-  text("Money:" + money, 120, 380);
+  text("Items:", 20, 380); // shows items on the item bar
+  text("Money:" + money, 120, 380); // shows amount of money
   fill("gold");
-  rect(0, 400, 800, 200);
+  rect(0, 400, 800, 200); // item bar (bottom of the screen)
   pop();
 
   push();
@@ -85,10 +86,10 @@ function draw() {
   image(itemsShop[1], 300, 500, 50, 50);
   image(itemsShop[2], 450, 500, 50, 50);
   image(itemsShop[3], 600, 500, 50, 50);
-  text("0x", 220, 530);
-  text("0x", 370, 530);
-  text("0x", 520, 530);
-  text("0x", 670, 530);
+  text("0x", 220, 530); // shows the ammount of item 1 you have
+  text("0x", 370, 530); // shows the ammount of item 2 you have
+  text("0x", 520, 530); // shows the ammount of item 3 you have
+  text("0x", 670, 530); // shows the ammount of item 4 you have
   pop();
 }
 
@@ -99,7 +100,7 @@ function mousePressed() {
       let key = Object.keys(stats)[i];
       stats[key] += 5;
       if (stats[key] > maxStats) {
-        stats[key] = maxStats; // makes it so that stats cannot exceed the 100/100 limit
+        stats[key] = maxStats; // makes it so that stats cannot exceed the 100/100 stat cap
       }
     }
   }
@@ -108,12 +109,12 @@ function mousePressed() {
 function updateStats() {  
   for (let i = 0; i < Object.keys(stats).length; i++) {
     let key = Object.keys(stats)[i];
-    stats[key] -= decreases[key] * deltaTime / 1000; // decreases stats with the passage of time, "key" refers to the entire list of elements within the array
+    stats[key] -= decreases[key] * deltaTime / 1000; // decreases stats with the passage of time, "key" refers to the entire list of elements within the data object of stats
     if (stats[key] < 0) {
       stats[key] = 0;
     }
     push();
-    rect(20, 20 + (30 * i), 100, 20); // bars being given colours based on position within the array
+    rect(20, 20 + (30 * i), 100, 20); // bars being given colours based on position within the data object
       if (i == 0){
         fill("red");
       }
@@ -157,7 +158,7 @@ function shop() { // shop function, necessary for the shop button
 
   //  if (mouse hovers over a shop item) {
   //    show item description
-  //  } else if (mouse hovers over a shop item and clicks) {
+  //  } else if (mouse hovers over a shop item && clicks) {
   //    purchase the shop item (shop item counter +1)
   //  }
   //
@@ -167,11 +168,12 @@ function shop() { // shop function, necessary for the shop button
 }
 
 // BUGFIXING
-// SHOP BUTTON  TRIGGERS FEEDING PET CODE
+// MONEY IS GIVEN IF EVEN ONE BAR IS NOT ZERO, I WANT IT TO STOP BASED ON DEATH SCREEN = BUG-MN-1
+// SHOP BUTTON  TRIGGERS FEEDING PET CODE = BUG-SPF-1
 // CLICKS DON'T ALWAYS REGISTER = BUG-CR-1 // FIXED
 
 // BRAINSTORMING
-// I WANT TO MAKE IT SO THAT THE LONGER THE PET IS ALIVE, THE MORE YOU EARN COINS
+// I HAVE TO ADD LOCAL STORAGE
 // I WANT TO MAKE IT SO THAT HOVERING OVER SHOP ITEMS SHOWS THEIR DESCRIPTION
 // I WANT TO GIVE HUNGER IMMUNITY IF JABBA EATS HAN SOLO STONE, HAN SOLO STONE IS A SHOP ITEM THAT IS BOUGHT WITH 100 GOLD
 

@@ -27,12 +27,12 @@ function setup() {
 
   background("gray")
 
-  let button = createButton("Shop"); // shop button, opens up the show when clicked
-  button.position(700, 20);
-  button.mousePressed(shop);
-  button.style("background-color", "gold");
-  // button.show
-  // button.hide
+  let shopButton = createButton("Shop"); // shop button, opens up the show when clicked
+  shopButton.position(700, 20);
+  shopButton.mousePressed(shop);
+  shopButton.style("background-color", "gold");
+  // shopButton.show();
+  // shopButton.hide();
 
   frameRate(30);
 }
@@ -52,14 +52,7 @@ function draw() {
     timeElapsed = 0; // resetting time calculation
   }
 
-  // push();
-  // noStroke();
-  // fill("Orange");
-  // circle(350, 200, 50);            // tried to make a radiant sun behind the pet with these lines of code, didn't work, will get to it later
-  // fill("Gold");
-  // circle(350, 200, 50 + radiance);
-  // pop();
-  updateStats(); // runs the codes having to do with the creation of stat rectangles, stat decaying, and the stat increment per mouse click
+  updateStats(); // runs the codes having to do with the stat bars creation, stat decaying, and the stat increment per mouse click
 
   if (shopVisible) { // shop
     rect(500, 40, 50, 50);
@@ -168,13 +161,18 @@ function shop() { // shop function, necessary for the shop button
 }
 
 // BUGFIXING
-// MONEY IS GIVEN IF EVEN ONE BAR IS NOT ZERO, I WANT IT TO STOP BASED ON DEATH SCREEN = BUG-MN-1
+// MONEY IS GIVEN IF EVEN ONE BAR IS NOT ZERO, I WANT IT TO STOP BASED ON DEATH SCREEN = DESIGN CHOICE
 // SHOP BUTTON  TRIGGERS FEEDING PET CODE = BUG-SPF-1
 // CLICKS DON'T ALWAYS REGISTER = BUG-CR-1 // FIXED
 
 // BRAINSTORMING
 // I HAVE TO ADD LOCAL STORAGE
-// I WANT TO MAKE IT SO THAT HOVERING OVER SHOP ITEMS SHOWS THEIR DESCRIPTION
+
+// I WANT TO MAKE IT SO THAT HOVERING OVER SHOP ITEMS SHOWS THEIR DESCRIPTION:
+// STEP 1: I CAN BUTTONIZE MY RECTANGLES WITH AABB CHECKS
+// STEP 2: BASED ON MOUSE INPUT, I CAN INCREASE THE STATS IN AN ARRAY/DATA OBJECT CALLED "shopItemCounter"
+// STEP 3: I CAN THEN UPDATE THE STATS WITHIN THE ITEM BAR AT THE BOTTOM OF THE SCREEN
+
 // I WANT TO GIVE HUNGER IMMUNITY IF JABBA EATS HAN SOLO STONE, HAN SOLO STONE IS A SHOP ITEM THAT IS BOUGHT WITH 100 GOLD
 
 // SETUP
